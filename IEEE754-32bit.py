@@ -99,7 +99,7 @@ def floatToIEEE754(number):
 def normalize(number):
     return number.replace(" ", "")
 
-def takeNumber(message):
+def takeNumber(message, ieee):
     while True:
         print(message)
         a = normalize(input().strip())
@@ -156,7 +156,7 @@ if __name__ == "__main__":
                     prettyPrint(floatToIEEE754(float(eval(op))))
                     break
         else:
-            v1 = takeNumber("Insert first number")
+            v1 = takeNumber("Insert first number", True)
 
             while True:
                 print("Insert operator:")
@@ -165,7 +165,7 @@ if __name__ == "__main__":
                 if op in ["+", "-", "*", "/", "**"]: break
                 print("Invalid operator, retry.")
                 
-            v2 = takeNumber("Insert second number")
+            v2 = takeNumber("Insert second number", True)
 
             v1 = str(IEEE754ToFloat(normalize(v1)))
             v2 = str(IEEE754ToFloat(normalize(v2)))
@@ -178,11 +178,11 @@ if __name__ == "__main__":
                       "From IEEE754 to decimal"])
 
         if sel == 1:
-            v = takeNumber("Insert number to convert")
+            v = takeNumber("Insert number to convert", False)
 
             print("Result:", end=" ")
             prettyPrint(str(floatToIEEE754(float(v))))
         else:
-            v = takeNumber("Insert number to convert")
+            v = takeNumber("Insert number to convert", True)
 
             print("Result: " + str(IEEE754ToFloat(normalize(v))))
