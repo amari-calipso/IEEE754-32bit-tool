@@ -1,5 +1,5 @@
 """
-Copyright (c) 2021 thatsOven
+Copyright (c) 2021 Amari Calipso
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without
@@ -39,7 +39,7 @@ def binaryDecimalToFloat(number):
     i = 1
     result = 0
     while i - 1 < len(number):
-        result += int(number[i - 1]) * (2 ** (-i)) 
+        result += int(number[i - 1]) * (2 ** (-i))
         i += 1
     return result
 
@@ -135,7 +135,7 @@ def prettyPrint(number):
 
 if __name__ == "__main__":
     colorama.init()
-    print("thatsOven's IEEE754 32bit tool")
+    print("IEEE754 32bit tool")
 
     sel = select(["Solve expressions",
                   "Convert"])
@@ -164,12 +164,12 @@ if __name__ == "__main__":
 
                 if op in ["+", "-", "*", "/", "**"]: break
                 print("Invalid operator, retry.")
-                
+
             v2 = takeNumber("Insert second number", True)
 
             v1 = str(IEEE754ToFloat(normalize(v1)))
             v2 = str(IEEE754ToFloat(normalize(v2)))
-            
+
             print("Result:", end=" ")
             prettyPrint(str(floatToIEEE754(float(eval(v1 + op + v2)))))
     else:
